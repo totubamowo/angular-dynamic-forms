@@ -1,0 +1,19 @@
+.mat-table {
+    overflow: auto;
+    max-height: 370px;
+}
+
+table tr td {
+    font-size: 12px;
+    text-align: center;
+}
+
+table th {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+mat-spinner {
+    margin:0 auto;
+}

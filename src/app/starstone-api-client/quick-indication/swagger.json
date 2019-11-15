@@ -1,0 +1,829 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0",
+        "title": "Escape API",
+        "description": "This sample documentation outlines how each of the endpoint within the api functions. "
+    },
+    "tags": [],
+    "servers": [
+        {
+            "url": "https://uat-escape-us-6-3.starstone.com/api/"
+        },
+        {
+            "url": "https://escape-api.escape.starstone.com/"
+        }
+    ],
+    "paths": {
+        "/carrierexcesscasualty/quick-indication/1.0": {
+            "post": {
+                "tags": [
+                    "Quick-Indication"
+                ],
+                "summary": "The operation processes quick-indication requests.",
+                "operationId": "Quick-Indication",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RequestSchema"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseSchema"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorSchema"
+                                },
+                                "example": {
+                                    "errorCode": "400",
+                                    "statusCode": "Orion",
+                                    "message": "Array item count 0 is less than minimum count of 1. Path 'policy.classCodes'",
+                                    "liveChatUrl": "https://lc.chat/now/8250631",
+                                    "phoneNumber": "877-232-1253"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorSchema"
+                                },
+                                "example": {
+                                    "errorCode": "404",
+                                    "statusCode": "Antlia",
+                                    "message": "The URL requested is not recognised",
+                                    "liveChatUrl": "https://lc.chat/now/8250631",
+                                    "phoneNumber": "877-232-1253"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorSchema"
+                                },
+                                "example": {
+                                    "errorCode": "500",
+                                    "statusCode": "Vulpecula",
+                                    "message": "An unexpected server error occurred",
+                                    "liveChatUrl": "https://lc.chat/now/8250631",
+                                    "phoneNumber": "877-232-1253"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "RequestSchema": {
+                "title": "Request Schema",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "policy": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "limit": {
+                                "description": "Limit Request",
+                                "type": "string",
+                                "additionalProperties": false,
+                                "maxLength": 80,
+                                "enum": [
+                                    "1000000",
+                                    "2000000",
+                                    "3000000",
+                                    "4000000",
+                                    "5000000",
+                                    "6000000",
+                                    "7000000",
+                                    "8000000",
+                                    "9000000",
+                                    "10000000"
+                                ]
+                            },
+                            "classCodes": {
+                                "type": "array",
+                                "additionalProperties": false,
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "exposureAmount": {
+                                            "description": "Exposure Amount",
+                                            "type": "number",
+                                            "additionalProperties": false
+                                        },
+                                        "isoCode": {
+                                            "description": "Search Value",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 255
+                                        }
+                                    },
+                                    "required": [
+                                        "exposureAmount",
+                                        "isoCode"
+                                    ]
+                                },
+                                "minItems": 1
+                            },
+                            "underlyingExposures": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "automobileLiability": {
+                                        "description": "Include Commercial Auto",
+                                        "type": "boolean",
+                                        "additionalProperties": false
+                                    },
+                                    "employersLiability": {
+                                        "description": "Include Employers Liability",
+                                        "type": "boolean",
+                                        "additionalProperties": false
+                                    },
+                                    "miscellaneousProfessionalLiability": {
+                                        "description": "Line Umbrella Misc Professional Liability Include Misc Professional Liability",
+                                        "type": "boolean",
+                                        "additionalProperties": false
+                                    },
+                                    "automobileLiabilityHiredNonOwned": {
+                                        "description": "Line Umbrella Commercial Auto Include Commercial Auto Hired Non Owned",
+                                        "type": "boolean",
+                                        "additionalProperties": false
+                                    },
+                                    "generalLiability": {
+                                        "description": "Include General Liability",
+                                        "type": "boolean",
+                                        "additionalProperties": false
+                                    },
+                                    "liquorLiability": {
+                                        "description": "Line Umbrella Liquor Liability Include Liquor Liability",
+                                        "type": "boolean",
+                                        "additionalProperties": false
+                                    },
+                                    "employeeBenefit": {
+                                        "description": "Line Umbrella Employee Benefit Include Employee Benefit",
+                                        "type": "boolean",
+                                        "additionalProperties": false
+                                    },
+                                    "condoOrHoaDirectorsAndOfficers": {
+                                        "description": "Garage Keepers Liability",
+                                        "type": "boolean",
+                                        "additionalProperties": false
+                                    },
+                                    "garageLiability": {
+                                        "description": "Line Umbrella Garage Liability Include Garage Liability",
+                                        "type": "boolean",
+                                        "additionalProperties": false
+                                    },
+                                    "includeOthers": {
+                                        "description": "Line Umbrella Others Include Others",
+                                        "type": "boolean",
+                                        "additionalProperties": false
+                                    }
+                                },
+                                "required": [
+                                    "automobileLiability",
+                                    "employersLiability",
+                                    "miscellaneousProfessionalLiability",
+                                    "automobileLiabilityHiredNonOwned",
+                                    "generalLiability",
+                                    "liquorLiability",
+                                    "employeeBenefit",
+                                    "condoOrHoaDirectorsAndOfficers",
+                                    "garageLiability",
+                                    "includeOthers"
+                                ]
+                            },
+                            "umbrellaGeneralLiabilities": {
+                                "type": "array",
+                                "additionalProperties": false,
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "occurrenceLimit": {
+                                            "description": "Limit of Liability per Occurrence (Minimum $1,000,000)",
+                                            "type": "number",
+                                            "additionalProperties": false,
+                                            "maxLength": 10
+                                        },
+                                        "aggregateLimit": {
+                                            "description": "Limit of Liability Aggregate (Minimum $2,000,000)",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "5000001"
+                                            ]
+                                        },
+                                        "productsAggregateLimit": {
+                                            "description": "Limit of Liability Products Completed Operations Aggregate (Minimum $1,000,000)",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 20,
+                                            "enum": [
+                                                "IncludedInGL",
+                                                "Excluded",
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "6000000",
+                                                "7000000",
+                                                "8000000",
+                                                "9000000",
+                                                "10000000",
+                                                "10000001"
+                                            ]
+                                        },
+                                        "underlyingPremium": {
+                                            "description": "Underlying Premium",
+                                            "type": "number",
+                                            "additionalProperties": false,
+                                            "maxLength": 10
+                                        },
+                                        "anyProjectsPerLocation": {
+                                            "description": "Are There Any per Project or per Location General Aggregate Limits?",
+                                            "type": "boolean",
+                                            "additionalProperties": false
+                                        }
+                                    }
+                                }
+                            },
+                            "umbrellaCommercialAuto": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "liabilityLimit": {
+                                        "description": "Combined single limit of liability (minimum $1,000,000)",
+                                        "type": "string",
+                                        "additionalProperties": false,
+                                        "maxLength": 10,
+                                        "enum": [
+                                            "1000000",
+                                            "2000000",
+                                            "3000000",
+                                            "4000000",
+                                            "5000000",
+                                            "5000001"
+                                        ]
+                                    },
+                                    "underlyingPremium": {
+                                        "description": "Underlying Premium",
+                                        "type": "number",
+                                        "additionalProperties": false,
+                                        "maxLength": 10
+                                    },
+                                    "privatePassengers": {
+                                        "description": "Private Passenger Vehicles:",
+                                        "type": "number",
+                                        "additionalProperties": false,
+                                        "maxLength": 3
+                                    },
+                                    "lightTrucks": {
+                                        "description": "Light Trucks - 0 to 10K lbs:",
+                                        "type": "number",
+                                        "additionalProperties": false,
+                                        "maxLength": 3
+                                    },
+                                    "mediumTrucks": {
+                                        "description": "Medium Trucks - 10K - 20K lbs:",
+                                        "type": "number",
+                                        "additionalProperties": false,
+                                        "maxLength": 3
+                                    },
+                                    "heavyTrucks": {
+                                        "description": "Heavy Trucks - 20K - 45K lbs:",
+                                        "type": "number",
+                                        "additionalProperties": false,
+                                        "maxLength": 3
+                                    },
+                                    "extraHeavyTruckShortHaul": {
+                                        "description": "Extra Heavy Trucks/Tractors - Over 45K lbs - Short Haul:",
+                                        "type": "number",
+                                        "additionalProperties": false,
+                                        "maxLength": 3
+                                    },
+                                    "extraHeavyTruckLongHaul": {
+                                        "description": "Extra Heavy Trucks/Tractors - Over 45K lbs - Long Haul:",
+                                        "type": "number",
+                                        "additionalProperties": false,
+                                        "maxLength": 3
+                                    },
+                                    "buses": {
+                                        "description": "Buses:",
+                                        "type": "number",
+                                        "additionalProperties": false,
+                                        "maxLength": 3
+                                    },
+                                    "anySchoolOrHospitalityOrShuttleBusesOrVansExposures": {
+                                        "description": "",
+                                        "type": "boolean",
+                                        "additionalProperties": false
+                                    },
+                                    "anyLimousinesOrTaxisOrDeliveryOperationsExposures": {
+                                        "description": "",
+                                        "type": "boolean",
+                                        "additionalProperties": false
+                                    }
+                                }
+                            },
+                            "umbrellaEmployersLiabilities": {
+                                "type": "array",
+                                "additionalProperties": false,
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "insuredsPayrollStates": {
+                                            "description": "Does the insured have payroll in any of the following states: NV, OH, ND, WA, WY",
+                                            "type": "boolean",
+                                            "additionalProperties": false
+                                        },
+                                        "eachAccidentLimit": {
+                                            "description": "Each Accident",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "Statutory",
+                                                "500000",
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "5000001"
+                                            ]
+                                        },
+                                        "diseaseAggregateLimit": {
+                                            "description": "Policy Limit - Disease",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "Statutory",
+                                                "500000",
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "5000001"
+                                            ]
+                                        },
+                                        "diseaseEachEmployee": {
+                                            "description": "Each Employee - Disease",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "Statutory",
+                                                "500000",
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "5000001"
+                                            ]
+                                        },
+                                        "occurrenceLimit": {
+                                            "description": "Occurrence Limit",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "5000001"
+                                            ]
+                                        },
+                                        "aggregateLimit": {
+                                            "description": "Aggregate Limit",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "5000001"
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "umbrellaMiscellanousProfessionalLiabilities": {
+                                "type": "array",
+                                "additionalProperties": false,
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "occurrenceLimit": {
+                                            "description": "Limit of Liability Per Occurrence",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "6000000",
+                                                "7000000",
+                                                "8000000",
+                                                "9000000",
+                                                "10000000",
+                                                "10000001"
+                                            ]
+                                        },
+                                        "aggregateLimit": {
+                                            "description": "Limit of Liability Per Aggregate",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "6000000",
+                                                "7000000",
+                                                "8000000",
+                                                "9000000",
+                                                "10000000",
+                                                "10000001"
+                                            ]
+                                        },
+                                        "underlyingPremium": {
+                                            "description": "Underlying Premium",
+                                            "type": "number",
+                                            "additionalProperties": false,
+                                            "maxLength": 254
+                                        }
+                                    }
+                                },
+                                "minItems": 1
+                            },
+                            "umbrellaHiredNonOwnedAuto": {
+                                "type": "array",
+                                "additionalProperties": false,
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "combinedSingleLimit": {
+                                            "description": "Combined single limit of liability",
+                                            "type": "number",
+                                            "additionalProperties": false
+                                        }
+                                    }
+                                },
+                                "minItems": 1
+                            },
+                            "umbrellaLiquorLiabilities": {
+                                "type": "array",
+                                "additionalProperties": false,
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "occurrenceLimit": {
+                                            "description": "Each Occurrence Limit",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "6000000"
+                                            ]
+                                        },
+                                        "aggregateLimit": {
+                                            "description": "Aggregate Limit",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "6000000"
+                                            ]
+                                        },
+                                        "premium": {
+                                            "description": "Underlying Premium ( If Included in GL input '0')",
+                                            "type": "number",
+                                            "additionalProperties": false,
+                                            "maxLength": 10
+                                        }
+                                    }
+                                }
+                            },
+                            "umbrellaEmployeeBenefitsLiabilities": {
+                                "type": "array",
+                                "additionalProperties": false,
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "perClaimLimit": {
+                                            "description": "Each Claim",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000"
+                                            ]
+                                        },
+                                        "aggregateLimit": {
+                                            "description": "Aggregate Limit",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "5000001"
+                                            ]
+                                        },
+                                        "underlyingPremium": {
+                                            "description": "Underlying Premium",
+                                            "type": "number",
+                                            "additionalProperties": false,
+                                            "maxLength": 10
+                                        }
+                                    }
+                                }
+                            },
+                            "umbrellaGarageKeepersLiabilities": {
+                                "type": "array",
+                                "additionalProperties": false,
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "perClaimLimit": {
+                                            "description": "Each Occurrence",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "5000001"
+                                            ]
+                                        },
+                                        "aggregateLimit": {
+                                            "description": "Aggregate Limit",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "6000000",
+                                                "7000000",
+                                                "8000000",
+                                                "9000000",
+                                                "10000000",
+                                                "1000001"
+                                            ]
+                                        },
+                                        "underlyingPremium": {
+                                            "description": "Underlying Premium",
+                                            "type": "number",
+                                            "additionalProperties": false,
+                                            "maxLength": 254
+                                        }
+                                    }
+                                }
+                            },
+                            "umbrellaGarageLiabilities": {
+                                "type": "array",
+                                "additionalProperties": false,
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "occurrenceLimit": {
+                                            "description": "Occurrence Limit",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "5000001"
+                                            ]
+                                        },
+                                        "aggregateLimit": {
+                                            "description": " Aggregate Limit",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 10,
+                                            "enum": [
+                                                "1000000",
+                                                "2000000",
+                                                "3000000",
+                                                "4000000",
+                                                "5000000",
+                                                "5000001"
+                                            ]
+                                        },
+                                        "underlyingPremium": {
+                                            "description": "Underlying Premium",
+                                            "type": "number",
+                                            "additionalProperties": false,
+                                            "maxLength": 10
+                                        }
+                                    }
+                                }
+                            },
+                            "umbrellaOtherLiabilities": {
+                                "type": "array",
+                                "additionalProperties": false,
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "otherDescription": {
+                                            "description": "Description",
+                                            "type": "string",
+                                            "additionalProperties": false,
+                                            "maxLength": 250
+                                        },
+                                        "occurrenceLimit": {
+                                            "description": "Occurrence Limit",
+                                            "type": "number",
+                                            "additionalProperties": false,
+                                            "maxLength": 10
+                                        },
+                                        "aggregateLimit": {
+                                            "description": "Aggregate Limit",
+                                            "type": "number",
+                                            "additionalProperties": false,
+                                            "maxLength": 10
+                                        },
+                                        "underlyingPremium": {
+                                            "description": "Underlying Premium",
+                                            "type": "number",
+                                            "additionalProperties": false,
+                                            "maxLength": 254
+                                        }
+                                    }
+                                },
+                                "minItems": 1
+                            }
+                        },
+                        "required": [
+                            "limit"
+                        ]
+                    }
+                }
+            },
+            "ResponseSchema": {
+                "title": "Response Schema",
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "messages": {
+                        "type": "array",
+                        "additionalProperties": false,
+                        "items": {
+                            "type": "object"
+                        },
+                        "minItems": 0
+                    },
+                    "policy": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                            "quoteNumber": {
+                                "description": "Quote Number",
+                                "type": "string",
+                                "additionalProperties": false,
+                                "maxLength": 50
+                            },
+                            "status": {
+                                "description": "Policy Output Policy Status Display",
+                                "type": "string",
+                                "additionalProperties": false,
+                                "maxLength": 25,
+                                "enum": [
+                                    "Quoted",
+                                    "Working",
+                                    "Submit",
+                                    "Bound/Completed",
+                                    "Booked",
+                                    "Bound/Inforce",
+                                    "Cancelled",
+                                    "NonRenewed",
+                                    "Referred/declined",
+                                    "Cancel-Pending",
+                                    "Suspended",
+                                    "Rated",
+                                    "Referred",
+                                    "Referred/accepted",
+                                    "Void",
+                                    "Blocked",
+                                    "Declined"
+                                ]
+                            },
+                            "premium": {
+                                "description": "Full-Term Premium",
+                                "type": "number",
+                                "additionalProperties": false,
+                                "maxLength": 10
+                            }
+                        }
+                    }
+                }
+            },
+            "ErrorSchema": {
+                "title": "Error Response",
+                "type": "object",
+                "properties": {
+                    "errorCode": {
+                        "type": "string"
+                    },
+                    "statusCode": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    },
+                    "liveChatUrl": {
+                        "type": "string"
+                    },
+                    "phoneNumber": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

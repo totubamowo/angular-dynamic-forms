@@ -1,0 +1,10 @@
+<header class="pt-1">
+    <nav mat-tab-nav-bar mat-align-tabs="center">
+        <a mat-tab-link [routerLink]="['/qe']" routerLinkActive #rlaQe="routerLinkActive" [active]="rlaQe.isActive"
+            [routerLinkActiveOptions]="{ exact: true }">Quick Eligibility
+        </a>
+        <!-- <a mat-tab-link [routerLink]="['/qi']" routerLinkActive #rlaQi="routerLinkActive" [active]="rlaQi.isActive"
+            [routerLinkActiveOptions]="{ exact: true }">Quick Indication
+        </a> -->
+    </nav>
+</header>

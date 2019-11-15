@@ -1,0 +1,3 @@
+<div class="app-alert alert alert-dark mt-1" role="alert" *ngIf="messageService.messages.length && isDevMode()">
+  <span *ngFor="let message of messageService.messages">{{message}}<br></span>
+</div>

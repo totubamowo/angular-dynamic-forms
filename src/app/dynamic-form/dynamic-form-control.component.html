@@ -1,0 +1,6 @@
+<ng-container [ngSwitch]="question.controlType">
+    <textbox *ngSwitchCase="'textbox'" [controlFormGroup]="controlFormGroup" [question]="question"></textbox>
+    <dropdown *ngSwitchCase="'dropdown'" [controlFormGroup]="controlFormGroup" [question]="question"></dropdown>
+    <radio *ngSwitchCase="'radio'" [controlFormGroup]="controlFormGroup" [question]="question"></radio>
+    <group *ngSwitchCase="'group'" [controlFormGroup]="controlFormGroup" [question]="question"></group>
+</ng-container>

@@ -1,56 +1,72 @@
 import { Injectable } from '@angular/core';
 
-import { DropdownQuestion } from '../dynamic-form-question/question-dropdown';
-import { QuestionBase, Option } from '../dynamic-form-question/question-base';
-import { TextboxQuestion } from '../dynamic-form-question/question-textbox';
-import { RadioQuestion } from '../dynamic-form-question/question-radio';
-
 @Injectable()
 export class QuickIndicationQuestionService {
 
   getQuestions() {
 
-    let questions: QuestionBase<any>[] = [
-      new DropdownQuestion({
+    let questions: any[] = [
+      {
+        controlType: 'dropdown',
         key: 'limit',
         label: 'Limit Request',
         options: [
-          new Option({ key: '1000000', value: '$1000000' }),
-          new Option({ key: '2000000', value: '$2000000' }),
-          new Option({ key: '3000000', value: '$3000000' }),
-          new Option({ key: '4000000', value: '$4000000' }),
-          new Option({ key: '5000000', value: '$5000000' }),
-          new Option({ key: '6000000', value: '$6000000' }),
-          new Option({ key: '7000000', value: '$7000000' }),
-          new Option({ key: '8000000', value: '$8000000' }),
-          new Option({ key: '9000000', value: '$9000000' }),
-          new Option({ key: '10000000', value: '$10000000' })
+          { key: '1000000', value: '$1000000' },
+          { key: '2000000', value: '$2000000' },
+          { key: '3000000', value: '$3000000' },
+          { key: '4000000', value: '$4000000' },
+          { key: '5000000', value: '$5000000' },
+          { key: '6000000', value: '$6000000' },
+          { key: '7000000', value: '$7000000' },
+          { key: '8000000', value: '$8000000' },
+          { key: '9000000', value: '$9000000' },
+          { key: '10000000', value: '$10000000' }
         ],
-        required: false,
+        required: true,
         mapping: 'policy.limit',
         order: 1
-      }),
-
-      new TextboxQuestion({
+      },
+      {
+        controlType: 'textbox',
+        key: 'anotherLimit',
+        label: 'Another Limit',
+        required: true,
+        mapping: 'policy.anotherLimit',
+        order: 2
+      },
+      {
+        controlType: 'textbox',
         key: 'underlyingPremium',
-        label: 'Underlying Premium ($)',
+        label: 'Premium ($)',
         required: false,
         type: 'number',
         mapping: 'policy.umbrellaCommercialAuto.underlyingPremium',
-        order: 2
-      }),
-
-      new RadioQuestion({
+        order: 3
+      },
+      {
+        controlType: 'radio',
         key: 'generalLiability',
         label: 'Include General Liability',
         options: [
-          new Option({ key: true, value: 'Yes' }),
-          new Option({ key: false, value: 'No' })
+          { key: true, value: 'Yes' },
+          { key: false, value: 'No' }
         ],
-        required: true,
+        required: false,
         mapping: 'policy.underlyingExposures.generalLiability',
-        order: 3
-      })
+        order: 4
+      },
+      {
+        controlType: 'group',
+        key: 'testGroup',
+        label: 'Group Label',
+        questions: [
+          { controlType: 'textbox', key: 'childOne', label: 'Child One', required: false, order: 1 },
+          { controlType: 'textbox', key: 'childTwo', label: 'Child Two', required: false, order: 2 }
+        ],
+        required: false,
+        mapping: 'policy.underlyingExposures.generalLiability',
+        order: 5
+      }
     ];
 
     return questions.sort((a, b) => a.order - b.order);

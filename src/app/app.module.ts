@@ -11,12 +11,15 @@ import { BASE_PATH as QI_BASE_PATH } from './starstone-api-client/quick-indicati
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { QuickIndicationComponent } from './quick-indication/quick-indication.component';
 import { AppService } from './app.service';
-import { DynamicFormComponent } from './dynamic-form-question/dynamic-form.component';
-import { DynamicFormQuestionComponent } from './dynamic-form-question/dynamic-form-question.component';
-import { DynamicGroupQuestionComponent } from './dynamic-group-question/dynamic-group-question.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { MessagesComponent } from './messages/messages.component';
-import { MatButtonModule, MatCardModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatRadioModule, MatSelectModule, MatSnackBarModule, MatTabsModule, MatTableModule, MatProgressSpinnerModule, MAT_DATE_LOCALE } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatRadioModule, MatSelectModule, MatSnackBarModule, MatTabsModule, MatTableModule, MatProgressSpinnerModule, MAT_DATE_LOCALE, MatExpansionModule, MatIconModule } from '@angular/material';
 import { QuickEligibilityComponent } from './quick-eligibility/quick-eligibility.component';
+import { GroupFormControlComponent } from './dynamic-form/form-control-group.component';
+import { DynamicFormControlComponent } from './dynamic-form/dynamic-form-control.component';
+import { TextboxFormControlComponent } from './dynamic-form/form-control-textbox.component';
+import { DropdownFormControlComponent } from './dynamic-form/form-control-dropdown.component';
+import { RadioFormControlComponent } from './dynamic-form/form-control-radio.component';
 
 @NgModule({
   imports: [
@@ -26,6 +29,7 @@ import { QuickEligibilityComponent } from './quick-eligibility/quick-eligibility
     HttpClientModule,
     MatButtonModule,
     MatCardModule,
+    MatExpansionModule,
     MatInputModule,
     MatFormFieldModule,
     MatPaginatorModule,
@@ -35,6 +39,7 @@ import { QuickEligibilityComponent } from './quick-eligibility/quick-eligibility
     MatSnackBarModule,
     MatTabsModule,
     MatTableModule,
+    MatIconModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'qi', component: QuickIndicationComponent },
@@ -44,8 +49,11 @@ import { QuickEligibilityComponent } from './quick-eligibility/quick-eligibility
   declarations: [
     AppComponent,
     DynamicFormComponent,
-    DynamicFormQuestionComponent,
-    DynamicGroupQuestionComponent,
+    DynamicFormControlComponent,
+    GroupFormControlComponent,
+    DropdownFormControlComponent,
+    RadioFormControlComponent,
+    TextboxFormControlComponent,
     QuickIndicationComponent,
     QuickEligibilityComponent,
     MessagesComponent,

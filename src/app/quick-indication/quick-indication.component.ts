@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-
 import { QuickIndicationQuestionService } from './quick-indication.question.service'
-
 import { AppService } from '../app.service';
 
 @Component({
@@ -14,11 +12,13 @@ import { AppService } from '../app.service';
 export class QuickIndicationComponent {
   appService: AppService
   questions: any[];
+  payload: any;
 
   constructor(questionService: QuickIndicationQuestionService) {
     this.questions = questionService.getQuestions();
   }
 
   onSubmitted(payload: any) {
+    this.payload = payload;
   }
 }

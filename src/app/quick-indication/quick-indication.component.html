@@ -1,3 +1,5 @@
 <mat-card>
-  <app-dynamic-form [questions]="questions" [actionName]="'Quick Indication'" (submitted)="onSubmitted($event)"></app-dynamic-form>
+  <dynamic-form [questions]="questions" [actionName]="'Quick Indication'" (submitted)="onSubmitted($event)"></dynamic-form>
+  <br>
+  <pre>{{payload | json}}</pre>
 </mat-card>

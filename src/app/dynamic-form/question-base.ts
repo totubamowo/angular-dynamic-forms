@@ -14,7 +14,7 @@ export class Option implements IOption {
   }
 }
 
-export class QuestionBase<T> {
+export abstract class QuestionBase<T> {
   value: T;
   key: string;
   label: string;

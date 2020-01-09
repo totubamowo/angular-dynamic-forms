@@ -22,10 +22,10 @@ export class FormControlService {
         }
       }
       if (question.controlType == 'group') {
-        group[question.key] = new FormArray(question.value || [], validators);
+        group[question.key] = new FormArray([], validators);
       }
       else {
-        group[question.key] = new FormControl(question.value || '', validators);
+        group[question.key] = new FormControl('', validators);
       }
     });
     return new FormGroup(group);

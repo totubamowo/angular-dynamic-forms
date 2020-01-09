@@ -3,23 +3,23 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-    escapeApi: {
+  production: true,
+  escapeApi: {
+    credentials: {
+      user: 'gtrent@bassuw.com',
+      password: 'UATAPI#1'
+    },
+    baseUrl: 'https://uat-escape-us-6-3.starstone.com/api',
+    accessToken: {
+      path: 'token',
+      grantType: 'client_credentials',
+      audience: 'escapeApi',
       credentials: {
-        user: 'gtrent@bassuw.com',
-        password: 'UATAPI#1'
-      },
-      baseUrl: 'https://uat-escape-us-6-3.starstone.com/api',
-      accessToken: {
-        path: 'token',
-        grantType: 'client_credentials',
-        audience: 'escapeApi',
-        credentials: {
-          user: 'client',
-          password: 'regr3ssion0nly'
-        }
+        user: 'client',
+        password: 'regr3ssion0nly'
       }
     }
+  }
 };
 
 /*

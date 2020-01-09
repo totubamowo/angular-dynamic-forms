@@ -1,5 +1,5 @@
 import { FormGroup, FormArray } from '@angular/forms';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { FormControlService } from './form-control.service';
 import { GroupQuestion } from './question-group';
@@ -11,9 +11,19 @@ import { GroupQuestion } from './question-group';
   providers: [FormControlService]
 })
 
-export class GroupFormControlComponent {
+export class GroupFormControlComponent implements OnInit {
   @Input() question: GroupQuestion;
   @Input() controlFormGroup: FormGroup;
+
+  ngOnInit(): void {
+    if (this.question.value !== null && typeof this.question.value !== 'undefined') {
+      this.question.value.forEach((currentValue, index) => {
+        this.addItem();
+        this.formArray.controls[index].setValue(currentValue);
+        this.controlFormGroup.updateValueAndValidity();
+      });
+    }
+  }
 
   constructor(private formControlService: FormControlService) { }
 
@@ -27,13 +37,9 @@ export class GroupFormControlComponent {
 
   removeItem(index: string): void {
     this.formArray.removeAt(parseInt(index));
-    this.formArray.updateValueAndValidity();
-    this.controlFormGroup.updateValueAndValidity();
   }
 
   addItem(): void {
     this.formArray.push(this.formControlService.toFormGroup(this.question.questions));
-    this.formArray.updateValueAndValidity();
-    this.controlFormGroup.updateValueAndValidity();
   }
 }

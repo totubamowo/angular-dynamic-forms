@@ -8,7 +8,6 @@ import { FormControlService } from './form-control.service';
   selector: 'dynamic-form',
   templateUrl: './dynamic-form.component.html',
   providers: [FormControlService]
-
 })
 
 export class DynamicFormComponent implements OnInit {
@@ -19,7 +18,7 @@ export class DynamicFormComponent implements OnInit {
 
   constructor(private formControlService: FormControlService) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.formGroup = this.formControlService.toFormGroup(this.questions);
   }
 

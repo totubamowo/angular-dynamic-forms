@@ -1,14 +1,6 @@
 <p>{{question.label}}</p>
 <ng-container [formGroup]="controlFormGroup">
-  <ng-container [formArrayName]="question.key" *ngFor="let item of formArray?.value; let i = index;">
-    <ng-container *ngFor="let childQuestion of question.questions">
-      <dynamic-form-control class="group-item" [controlFormGroup]="formArray.controls[i]" [question]="childQuestion"></dynamic-form-control>
-    </ng-container>
-    <button mat-icon-button (click)="removeItem(i)">
-      <mat-icon>indeterminate_check_box</mat-icon>
-    </button>
-    <br>
-  </ng-container>
+  <ng-template group-child-container></ng-template>
   <button mat-icon-button (click)="addItem()">
     <mat-icon>add_box</mat-icon>
   </button>

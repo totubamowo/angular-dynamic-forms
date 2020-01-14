@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { QuestionBase } from './question-base';
@@ -16,13 +16,14 @@ export class DynamicFormComponent implements OnInit {
   @Output() submitted = new EventEmitter<any>();
   formGroup: FormGroup;
 
-  constructor(private formControlService: FormControlService) { }
+  constructor(private formControlService: FormControlService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.formGroup = this.formControlService.toFormGroup(this.questions);
+    this.cdr.detectChanges();
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.submitted.emit(this.formGroup.value);
   }
 }

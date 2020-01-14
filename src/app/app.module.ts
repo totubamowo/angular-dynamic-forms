@@ -20,6 +20,8 @@ import { DynamicFormControlComponent } from './dynamic-form/dynamic-form-control
 import { TextboxFormControlComponent } from './dynamic-form/form-control-textbox.component';
 import { DropdownFormControlComponent } from './dynamic-form/form-control-dropdown.component';
 import { RadioFormControlComponent } from './dynamic-form/form-control-radio.component';
+import { GroupChildComponent } from './dynamic-form/group-child.component';
+import { GroupChildContainerDirective } from './dynamic-form/group-child-container.directive';
 
 @NgModule({
   imports: [
@@ -54,6 +56,8 @@ import { RadioFormControlComponent } from './dynamic-form/form-control-radio.com
     DropdownFormControlComponent,
     RadioFormControlComponent,
     TextboxFormControlComponent,
+    GroupChildComponent,
+    GroupChildContainerDirective,
     QuickIndicationComponent,
     QuickEligibilityComponent,
     MessagesComponent,
@@ -64,6 +68,9 @@ import { RadioFormControlComponent } from './dynamic-form/form-control-radio.com
     { provide: MAT_DATE_LOCALE, useValue: 'en-US' },
     { provide: QE_BASE_PATH, useValue: environment.escapeApi.baseUrl },
     { provide: QI_BASE_PATH, useValue: environment.escapeApi.baseUrl },
+  ],
+  entryComponents: [
+    GroupChildComponent
   ],
   bootstrap: [AppComponent]
 })

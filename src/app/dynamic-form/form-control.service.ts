@@ -8,7 +8,7 @@ import { TextboxQuestion } from './question-textbox';
 export class FormControlService {
   constructor() { }
 
-  toFormGroup(questions: QuestionBase<any>[]) {
+  toFormGroup(questions: QuestionBase<any>[]): FormGroup {
     let group: any = {};
 
     questions.forEach(question => {

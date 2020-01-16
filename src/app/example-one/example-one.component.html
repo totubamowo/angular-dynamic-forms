@@ -1,0 +1,6 @@
+<mat-card>
+  <dynamic-form [questions]="questions" [actionName]="'Search'" (submitted)="onSubmitted($event)">
+  </dynamic-form>
+  <br>
+  <pre>{{payload | json}}</pre>
+</mat-card>

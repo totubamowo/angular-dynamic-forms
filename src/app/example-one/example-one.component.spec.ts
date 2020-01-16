@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QuickEligibilityComponent } from './quick-eligibility.component';
+import { ExampleOneComponent } from './example-one.component';
 
-describe('QuickEligibilityComponent', () => {
-  let component: QuickEligibilityComponent;
-  let fixture: ComponentFixture<QuickEligibilityComponent>;
+describe('ExampleOneComponent', () => {
+  let component: ExampleOneComponent;
+  let fixture: ComponentFixture<ExampleOneComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuickEligibilityComponent ]
+      declarations: [ ExampleOneComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(QuickEligibilityComponent);
+    fixture = TestBed.createComponent(ExampleOneComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -4,9 +4,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { MatButtonModule, MatCardModule, MatExpansionModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatRadioModule, MatSelectModule, MatProgressSpinnerModule, MatSnackBarModule, MatTabsModule, MatTableModule, MatIconModule, MAT_DATE_LOCALE } from '@angular/material';
-import { QuickIndicationComponent } from './quick-indication/quick-indication.component';
-import { QuickEligibilityComponent } from './quick-eligibility/quick-eligibility.component';
+import { MatButtonModule, MatCardModule, MatExpansionModule, MatInputModule, MatFormFieldModule, MatRadioModule, MatSelectModule, MatTabsModule, MatIconModule, MAT_DATE_LOCALE } from '@angular/material';
+import { ExampleTwoComponent } from './example-two/example-two.component';
+import { ExampleOneComponent } from './example-one/example-one.component';
 import { AppComponent } from './app.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { DynamicFormControlComponent } from './dynamic-form/dynamic-form-control.component';
@@ -17,14 +17,7 @@ import { TextboxFormControlComponent } from './dynamic-form/form-control-textbox
 import { ListFormControlComponent } from './dynamic-form/list-component/list-form-control.component';
 import { ListItemComponent } from './dynamic-form/list-component/list-item-component/list-item.component';
 import { ListContainerDirective } from './dynamic-form/list-component/list-container.directive';
-import { MessagesComponent } from './messages/messages.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { AppService } from './app.service';
-import { environment } from 'src/environments/environment';
-
-import { BASE_PATH as QE_BASE_PATH } from './starstone-api-client/quick-eligibility';
-import { BASE_PATH as QI_BASE_PATH } from './starstone-api-client/quick-indication';
-
 
 @NgModule({
   imports: [
@@ -37,18 +30,14 @@ import { BASE_PATH as QI_BASE_PATH } from './starstone-api-client/quick-indicati
     MatExpansionModule,
     MatInputModule,
     MatFormFieldModule,
-    MatPaginatorModule,
     MatRadioModule,
     MatSelectModule,
-    MatProgressSpinnerModule,
-    MatSnackBarModule,
     MatTabsModule,
-    MatTableModule,
     MatIconModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: 'qi', component: QuickIndicationComponent },
-      { path: 'qe', component: QuickEligibilityComponent }
+      { path: 'example-one', component: ExampleOneComponent },
+      { path: 'example-two', component: ExampleTwoComponent }
     ])
   ],
   declarations: [
@@ -62,16 +51,12 @@ import { BASE_PATH as QI_BASE_PATH } from './starstone-api-client/quick-indicati
     ListFormControlComponent,
     ListItemComponent,
     ListContainerDirective,
-    QuickIndicationComponent,
-    QuickEligibilityComponent,
-    MessagesComponent,
+    ExampleTwoComponent,
+    ExampleOneComponent,
     TopBarComponent
   ],
   providers: [
-    AppService,
-    { provide: MAT_DATE_LOCALE, useValue: 'en-US' },
-    { provide: QE_BASE_PATH, useValue: environment.escapeApi.baseUrl },
-    { provide: QI_BASE_PATH, useValue: environment.escapeApi.baseUrl },
+    { provide: MAT_DATE_LOCALE, useValue: 'en-US' }
   ],
   entryComponents: [
     ListItemComponent

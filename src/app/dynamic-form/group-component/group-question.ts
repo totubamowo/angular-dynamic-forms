@@ -1,8 +1,7 @@
-import { QuestionBase, Option } from './question-base';
+import { QuestionBase } from '../question-base';
 
-export class GroupQuestion extends QuestionBase<object[]> {
+export class GroupQuestion extends QuestionBase<object> {
   controlType = 'group';
-  options: Option[] = [];
   questions: QuestionBase<any>[] = [];
 
   constructor(options: {} = {}) {

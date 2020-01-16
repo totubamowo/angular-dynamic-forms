@@ -1,8 +1,8 @@
 import { Directive, ViewContainerRef } from '@angular/core';
 
 @Directive({
-    selector: '[group-child-container]',
+    selector: '[list-container]',
 })
-export class GroupChildContainerDirective {
+export class ListContainerDirective {
     constructor(public viewContainerRef: ViewContainerRef) { }
 }

@@ -1,0 +1,8 @@
+<ng-container *ngFor="let question of questions">
+    <dynamic-form-control class="list-item" [controlFormGroup]="controlFormGroup" [question]="question">
+    </dynamic-form-control>
+</ng-container>
+<button mat-icon-button (click)="remove()">
+    <mat-icon>indeterminate_check_box</mat-icon>
+</button>
+<br>

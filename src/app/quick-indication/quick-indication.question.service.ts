@@ -43,7 +43,7 @@ export class QuickIndicationQuestionService {
         required: false,
         type: 'number',
         mapping: 'policy.umbrellaCommercialAuto.underlyingPremium',
-        value: '900',
+        value: 900,
         order: 3
       },
       {
@@ -58,22 +58,6 @@ export class QuickIndicationQuestionService {
         mapping: 'policy.underlyingExposures.generalLiability',
         value: false,
         order: 4
-      },
-      {
-        controlType: 'group',
-        key: 'testGroup',
-        label: 'Group Label',
-        questions: [
-          { controlType: 'textbox', key: 'childOne', type: 'number', label: 'Child One', required: false, order: 1 },
-          { controlType: 'textbox', key: 'childTwo', type: 'number', label: 'Child Two', required: false, order: 2 }
-        ],
-        required: false,
-        mapping: 'policy.underlyingExposures.generalLiability',
-        order: 5,
-        value: [
-          { childOne: 1, childTwo: 2 },
-          { childOne: 3, childTwo: 4 },
-        ]
       }
     ];
 

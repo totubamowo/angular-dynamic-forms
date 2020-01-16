@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators, FormArray, ValidatorFn } from '@ang
 
 import { QuestionBase } from './question-base';
 import { TextboxQuestion } from './question-textbox';
+import { GroupQuestion } from './group-component/group-question';
 
 @Injectable()
 export class FormControlService {
@@ -21,7 +22,11 @@ export class FormControlService {
           validators.push(Validators.pattern(/^[1-9][0-9]*$/));
         }
       }
+
       if (question.controlType == 'group') {
+        group[question.key] = this.toFormGroup((question as GroupQuestion).questions);
+      }
+      else if (question.controlType == 'list') {
         group[question.key] = new FormArray([], validators);
       }
       else {

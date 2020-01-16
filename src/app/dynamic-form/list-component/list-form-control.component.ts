@@ -1,29 +1,28 @@
-import { FormGroup, FormArray } from '@angular/forms';
-import { Component, Input, OnInit, ViewChild, ComponentFactoryResolver, ComponentFactory, ViewContainerRef } from '@angular/core';
-
-import { FormControlService } from './form-control.service';
-import { GroupQuestion } from './question-group';
-import { GroupChildComponent } from './group-child.component';
-import { GroupChildContainerDirective } from './group-child-container.directive';
+import { Component, OnInit, Input, ViewChild, ViewContainerRef, ComponentFactory, ComponentFactoryResolver } from "@angular/core";
+import { FormControlService } from "../form-control.service";
+import { ListQuestion } from "./list-question";
+import { FormGroup, FormArray } from "@angular/forms";
+import { ListContainerDirective } from "./list-container.directive";
+import { ListItemComponent } from "./list-item-component/list-item.component";
 
 @Component({
-  selector: 'group',
-  templateUrl: './form-control-group.component.html',
-  styleUrls: ['./form-control-group.component.css'],
+  selector: 'list',
+  templateUrl: './list-form-control.component.html',
+  styleUrls: ['./list-form-control.component.css'],
   providers: [FormControlService]
 })
 
-export class GroupFormControlComponent implements OnInit {
-  @Input() question: GroupQuestion;
+export class ListFormControlComponent implements OnInit {
+  @Input() question: ListQuestion;
   @Input() controlFormGroup: FormGroup;
-  @ViewChild(GroupChildContainerDirective, { static: true, read: ViewContainerRef }) groupChildContainer: ViewContainerRef;
+  @ViewChild(ListContainerDirective, { static: true, read: ViewContainerRef }) listContainer: ViewContainerRef;
 
-  private groupChildComponentFactory: ComponentFactory<GroupChildComponent>;
+  private listItemComponentFactory: ComponentFactory<ListItemComponent>;
 
   ngOnInit(): void {
     if (this.question.value !== null && typeof this.question.value !== 'undefined') {
       this.question.value.forEach((currentValue: any) => {
-        const controlIndex = this.addItem();
+        const controlIndex = this.addListItem();
         this.formArray.at(controlIndex).setValue(currentValue);
         this.controlFormGroup.updateValueAndValidity();
       });
@@ -31,7 +30,7 @@ export class GroupFormControlComponent implements OnInit {
   }
 
   constructor(private formControlService: FormControlService, componentFactoryResolver: ComponentFactoryResolver) {
-    this.groupChildComponentFactory = componentFactoryResolver.resolveComponentFactory(GroupChildComponent);
+    this.listItemComponentFactory = componentFactoryResolver.resolveComponentFactory(ListItemComponent);
   }
 
   get isValid(): boolean {
@@ -43,16 +42,16 @@ export class GroupFormControlComponent implements OnInit {
   }
 
   createGroupChild(controlIndex: number): void {
-    const componentRef = this.groupChildContainer.createComponent(this.groupChildComponentFactory);
+    const componentRef = this.listContainer.createComponent(this.listItemComponentFactory);
     componentRef.instance.controlFormGroup = this.formArray.controls[controlIndex] as FormGroup;
     componentRef.instance.questions = this.question.questions;
     componentRef.instance.removed.subscribe(() => {
       this.formArray.removeAt(controlIndex);
-      this.groupChildContainer.remove(controlIndex);
+      this.listContainer.remove(controlIndex);
     });
   }
 
-  addItem(): number {
+  addListItem(): number {
     this.formArray.push(this.formControlService.toFormGroup(this.question.questions));
     let controlIndex = this.formArray.length - 1;
     this.createGroupChild(controlIndex);

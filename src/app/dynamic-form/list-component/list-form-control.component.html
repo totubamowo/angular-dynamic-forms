@@ -1,7 +1,7 @@
 <p>{{question.label}}</p>
 <ng-container [formGroup]="controlFormGroup">
-  <ng-template group-child-container></ng-template>
-  <button mat-icon-button (click)="addItem()">
+  <ng-template list-container></ng-template>
+  <button mat-icon-button (click)="addListItem()">
     <mat-icon>add_box</mat-icon>
   </button>
 </ng-container>

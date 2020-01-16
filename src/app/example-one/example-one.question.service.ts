@@ -7,39 +7,42 @@ export class ExampleOneQuestionService {
 
     let questions: any[] = [
       {
-        controlType: 'dropdown',
-        key: 'product',
-        label: 'Select Product',
+        controlType: 'textbox',
+        key: 'firstName',
+        label: 'First Name',
+        type: 'text',
         required: true,
-        options: [
-          { key: 'Umbrella', value: 'Umbrella' },
-          { key: 'ExcessOverPrimary', value: 'Excess Over Primary' },
-          { key: 'ExcessLiability', value: 'Excess Liability' }
-        ],
-        mapping: 'product',
         order: 1
       },
       {
-        controlType: 'dropdown',
-        key: 'searchBy',
-        label: 'Search by',
+        controlType: 'textbox',
+        key: 'lastName',
+        label: 'Last Name',
+        type: 'text',
         required: true,
-        options: [
-          { key: 'ClassCode', value: 'Class Code' },
-          { key: 'Description', value: 'Description' }
-        ],
-        mapping: 'searchBy',
         order: 2
       },
       {
         controlType: 'textbox',
-        key: 'searchInput',
-        label: 'Input Value',
-        value: '',
+        key: 'workEmail',
+        label: 'Work Email',
+        type: 'email',
         required: true,
-        type: 'text',
-        mapping: 'searchInput',
         order: 3
+      },
+      {
+        controlType: 'dropdown',
+        key: 'jobTitle',
+        label: 'Job Title',
+        required: true,
+        options: [
+          { key: 'Analyst', value: 'Analyst' },
+          { key: 'Senior Engineer', value: 'Senior Engineer' },
+          { key: 'Tech Lead', value: 'Tech Lead' },
+          { key: 'Senior Tech Lead', value: 'Senior Tech Lead' },
+          { key: 'Principal Engineer', value: 'Principal Engineer' }
+        ],
+        order: 4
       }
     ];
 

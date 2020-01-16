@@ -1,7 +1,11 @@
-<p>{{question.label}}</p>
-<ng-container [formGroup]="controlFormGroup">
-  <ng-template list-container></ng-template>
-  <button mat-icon-button (click)="addListItem()">
-    <mat-icon>add_box</mat-icon>
-  </button>
-</ng-container>
+<section>
+  <div>
+    {{question.label}}
+    <button mat-icon-button (click)="addListItem()" [disabled]="isAddButtonDisabled">
+      <mat-icon>add_box</mat-icon>
+    </button>
+  </div>
+  <ng-container [formGroup]="controlFormGroup">
+    <ng-template list-container></ng-template>
+  </ng-container>
+</section>

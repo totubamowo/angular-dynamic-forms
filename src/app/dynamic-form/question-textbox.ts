@@ -1,7 +1,10 @@
 import { QuestionBase } from './question-base';
 
 export class TextboxQuestion extends QuestionBase<string> {
-  controlType = 'textbox';
+  minLength: number;
+  maxLength: number;
+  min: number;
+  max: number;
   type: string;
 
   constructor(options: {} = {}) {

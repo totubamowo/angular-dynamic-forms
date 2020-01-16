@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators, FormArray, ValidatorFn } from '@ang
 import { QuestionBase } from './question-base';
 import { TextboxQuestion } from './question-textbox';
 import { GroupQuestion } from './group-component/group-question';
+import { ListQuestion } from './list-component/list-question';
 
 @Injectable()
 export class FormControlService {
@@ -18,13 +19,38 @@ export class FormControlService {
         validators.push(Validators.required);
       }
       if (question.controlType == 'textbox') {
-        if ((question as TextboxQuestion).type == 'number') {
+        const textboxQuestion = question as TextboxQuestion;
+        if (textboxQuestion.type == 'number') {
           validators.push(Validators.pattern(/^[1-9][0-9]*$/));
+          if(textboxQuestion.min !== null && textboxQuestion.min !== undefined) {
+            validators.push(Validators.min(textboxQuestion.min));
+          }
+          if(textboxQuestion.max !== null && textboxQuestion.max !== undefined) {
+            validators.push(Validators.max(textboxQuestion.max));
+          }
+        }
+        else if (textboxQuestion.type == 'email') {
+          validators.push(Validators.email);
+        }
+        else if (textboxQuestion.type == 'text') {
+          if(textboxQuestion.minLength !== null && textboxQuestion.minLength !== undefined) {
+            validators.push(Validators.minLength(textboxQuestion.minLength));
+          }
+          if(textboxQuestion.maxLength !== null && textboxQuestion.maxLength !== undefined) {
+            validators.push(Validators.maxLength(textboxQuestion.maxLength));
+          }
+        }
+      }
+      if (question.controlType == 'list') {
+        const listQuestion = question as ListQuestion;
+        if(listQuestion.maxLength !== null && listQuestion.maxLength !== undefined) {
+          validators.push(Validators.max(listQuestion.maxLength));
         }
       }
 
       if (question.controlType == 'group') {
-        group[question.key] = this.toFormGroup((question as GroupQuestion).questions);
+        const groupQuestion = question as GroupQuestion;
+        group[question.key] = this.toFormGroup(groupQuestion.questions);
       }
       else if (question.controlType == 'list') {
         group[question.key] = new FormArray([], validators);

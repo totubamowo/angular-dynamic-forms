@@ -57,4 +57,11 @@ export class ListFormControlComponent implements OnInit {
     this.createGroupChild(controlIndex);
     return controlIndex;
   }
+
+  get isAddButtonDisabled(): boolean {
+    if (this.question.maxLength !== null && typeof this.question.maxLength !== 'undefined') {
+      return this.formArray.length >= this.question.maxLength;
+    }
+    return false
+  }
 }

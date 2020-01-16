@@ -1,9 +1,11 @@
-<p>{{question.label}}</p>
-<ng-container [formGroup]="controlFormGroup">
-  <ng-container [formGroup]="formGroup">
-    <ng-container *ngFor="let childQuestion of question.questions">
-      <dynamic-form-control class="group-item" [controlFormGroup]="formGroup" [question]="childQuestion">
-      </dynamic-form-control>
+<section>
+  <p>{{question.label}}</p>
+  <ng-container [formGroup]="controlFormGroup">
+    <ng-container [formGroup]="formGroup">
+      <ng-container *ngFor="let childQuestion of question.questions, trackBy: trackByIndex()">
+        <dynamic-form-control class="group-item" [controlFormGroup]="formGroup" [question]="childQuestion">
+        </dynamic-form-control>
+      </ng-container>
     </ng-container>
   </ng-container>
-</ng-container>
+</section>

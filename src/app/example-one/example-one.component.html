@@ -1,5 +1,7 @@
 <mat-card>
-  <dynamic-form [questions]="questions" [actionName]="'Search'" (submitted)="onSubmitted($event)">
+  <h3>Request a Demo!
+  </h3>
+  <dynamic-form [questions]="questions" [actionName]="'Submit'" (submitted)="onSubmitted($event)">
   </dynamic-form>
   <br>
   <pre>{{payload | json}}</pre>

@@ -32,6 +32,10 @@ export class GroupFormControlComponent implements OnInit {
     this.controlFormGroup.controls[this.question.key] = formGroup
   }
 
+  trackByIndex(index: number, item: any): number {
+    return index;
+  }
+
   get isValid(): boolean {
     return this.formGroup.valid;
   }

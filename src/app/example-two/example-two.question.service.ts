@@ -8,56 +8,67 @@ export class ExampleTwoQuestionService {
     let questions: any[] = [
       {
         controlType: 'dropdown',
-        key: 'limit',
-        label: 'Limit Request',
+        key: 'dropdown',
+        label: 'Dropdown',
         options: [
-          { key: '1000000', value: '$1000000' },
-          { key: '2000000', value: '$2000000' },
-          { key: '3000000', value: '$3000000' },
-          { key: '4000000', value: '$4000000' },
-          { key: '5000000', value: '$5000000' },
-          { key: '6000000', value: '$6000000' },
-          { key: '7000000', value: '$7000000' },
-          { key: '8000000', value: '$8000000' },
-          { key: '9000000', value: '$9000000' },
-          { key: '10000000', value: '$10000000' }
+          { key: 1, value: 'I' },
+          { key: 2, value: 'II' },
+          { key: 3, value: 'III' },
+          { key: 4, value: 'IV' },
+          { key: 5, value: 'V' }
         ],
-        required: true,
-        mapping: 'policy.limit',
-        value: '8000000',
+        required: false,
         order: 1
       },
       {
         controlType: 'textbox',
-        key: 'anotherLimit',
-        label: 'Another Limit',
-        required: true,
-        mapping: 'policy.anotherLimit',
-        value: '100',
+        key: 'numberTextbox',
+        label: 'Number',
+        type: 'number',
+        required: false,
         order: 2
       },
       {
         controlType: 'textbox',
-        key: 'underlyingPremium',
-        label: 'Premium ($)',
+        key: 'emailTextbox',
+        label: 'Email',
+        type: 'email',
         required: false,
-        type: 'number',
-        mapping: 'policy.umbrellaCommercialAuto.underlyingPremium',
-        value: 900,
         order: 3
       },
       {
+        controlType: 'group',
+        key: 'group',
+        label: 'Group',
+        required: false,
+        questions: [
+          { controlType: 'textbox', key: 'childOne', label: 'Child One', type: 'text', minLength: 3 },
+          { controlType: 'textbox', key: 'childTwo', label: 'Child Two', type: 'text' }
+        ],
+        order: 4
+      },
+      {
         controlType: 'radio',
-        key: 'generalLiability',
-        label: 'Include General Liability',
+        key: 'liked',
+        label: 'Are you enjoying this?',
         options: [
           { key: true, value: 'Yes' },
           { key: false, value: 'No' }
         ],
         required: false,
-        mapping: 'policy.underlyingExposures.generalLiability',
-        value: false,
-        order: 4
+        order: 5
+      },
+      {
+        controlType: 'list',
+        max: 3,
+        key: 'list',
+        label: 'List',
+        required: true,
+        questions: [
+          { controlType: 'textbox', key: 'childOne', label: 'Child One', type: 'text' },
+          { controlType: 'textbox', key: 'childTwo', label: 'Child Two', type: 'text' }
+        ],
+        order: 6
       }
     ];
 

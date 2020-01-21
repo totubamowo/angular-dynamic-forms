@@ -36,11 +36,11 @@ export class ExampleOneQuestionService {
         label: 'Job Title',
         required: true,
         options: [
-          { key: 'Analyst', value: 'Analyst' },
-          { key: 'Senior Engineer', value: 'Senior Engineer' },
-          { key: 'Tech Lead', value: 'Tech Lead' },
-          { key: 'Senior Tech Lead', value: 'Senior Tech Lead' },
-          { key: 'Principal Engineer', value: 'Principal Engineer' }
+          { value: 'Analyst', description: 'Analyst' },
+          { value: 'Senior Engineer', description: 'Senior Engineer' },
+          { value: 'Tech Lead', description: 'Tech Lead' },
+          { value: 'Senior Tech Lead', description: 'Senior Tech Lead' },
+          { value: 'Principal Engineer', description: 'Principal Engineer' }
         ],
         order: 4
       }

@@ -1,16 +1,9 @@
-export interface IOption {
-  key: any;
-  value: string;
-}
-
-export class Option implements IOption {
-  key: any;
-  value: string;
-  id: string;
-  constructor(option: IOption) {
-    this.key = option.key;
+export class Option {
+  value: any;
+  description: string;
+  constructor(option: Option) {
     this.value = option.value;
-    this.id = option.key + option.value;
+    this.description = option.description;
   }
 }
 

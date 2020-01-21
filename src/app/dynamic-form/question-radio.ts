@@ -6,10 +6,7 @@ export class RadioQuestion extends QuestionBase<any> {
   constructor(options: {} = {}) {
     super(options);
     this.options = options['options'].map(opt => {
-      return new Option({ key: opt.key, value: opt.value });
-    }) || [
-        { key: true, value: 'Yes' },
-        { key: false, value: 'No' }
-      ];
+      return new Option({ description: opt.description, value: opt.value });
+    });
   }
 }

@@ -6,7 +6,7 @@ export class DropdownQuestion extends QuestionBase<string> {
   constructor(options: {} = {}) {
     super(options);
     this.options = options['options'].map(opt => {
-      return new Option({ key: opt.key, value: opt.value });
-    }) || [];
+      return new Option({ description: opt.description, value: opt.value });
+    });
   }
 }

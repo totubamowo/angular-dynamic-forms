@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ExampleTwoQuestionService } from './example-two.question.service'
 
 @Component({
-  selector: 'quick-indication',
   templateUrl: './example-two.component.html',
   styleUrls: ['./example-two.component.css'],
   providers: [ExampleTwoQuestionService]

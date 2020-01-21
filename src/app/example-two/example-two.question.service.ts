@@ -11,11 +11,11 @@ export class ExampleTwoQuestionService {
         key: 'dropdown',
         label: 'Dropdown',
         options: [
-          { key: 1, value: 'I' },
-          { key: 2, value: 'II' },
-          { key: 3, value: 'III' },
-          { key: 4, value: 'IV' },
-          { key: 5, value: 'V' }
+          { value: 1, description: 'I' },
+          { value: 2, description: 'II' },
+          { value: 3, description: 'III' },
+          { value: 4, description: 'IV' },
+          { value: 5, description: 'V' }
         ],
         required: false,
         order: 1
@@ -52,8 +52,8 @@ export class ExampleTwoQuestionService {
         key: 'liked',
         label: 'Are you enjoying this?',
         options: [
-          { key: true, value: 'Yes' },
-          { key: false, value: 'No' }
+          { value: true, description: 'Yes' },
+          { value: false, description: 'No' }
         ],
         required: false,
         order: 5

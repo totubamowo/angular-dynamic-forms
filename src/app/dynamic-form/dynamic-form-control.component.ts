@@ -5,7 +5,8 @@ import { QuestionBase } from './question-base';
 
 @Component({
   selector: 'dynamic-form-control',
-  templateUrl: './dynamic-form-control.component.html'
+  templateUrl: './dynamic-form-control.component.html',
+  styleUrls: ['./dynamic-form-control.component.css']
 })
 
 export class DynamicFormControlComponent {

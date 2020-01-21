@@ -4,13 +4,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { MatButtonModule, MatCardModule, MatExpansionModule, MatInputModule, MatFormFieldModule, MatRadioModule, MatSelectModule, MatTabsModule, MatIconModule, MAT_DATE_LOCALE } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatCheckboxModule, MatExpansionModule, MatInputModule, MatFormFieldModule, MatRadioModule, MatSelectModule, MatTabsModule, MatIconModule, MAT_DATE_LOCALE } from '@angular/material';
 import { ExampleTwoComponent } from './example-two/example-two.component';
 import { ExampleOneComponent } from './example-one/example-one.component';
+import { InsuranceQuoteComponent } from './insurance-quote/insurance-quote.component';
 import { AppComponent } from './app.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { DynamicFormControlComponent } from './dynamic-form/dynamic-form-control.component';
 import { GroupFormControlComponent } from './dynamic-form/group-component/group-form-control.component';
+import { CheckboxFormControlComponent } from './dynamic-form/checkbox-component/checkbox-form-control.component';
 import { DropdownFormControlComponent } from './dynamic-form/form-control-dropdown.component';
 import { RadioFormControlComponent } from './dynamic-form/form-control-radio.component';
 import { TextboxFormControlComponent } from './dynamic-form/form-control-textbox.component';
@@ -30,6 +32,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     MatExpansionModule,
     MatInputModule,
     MatFormFieldModule,
+    MatCheckboxModule,
     MatRadioModule,
     MatSelectModule,
     MatTabsModule,
@@ -37,7 +40,8 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'example-one', component: ExampleOneComponent },
-      { path: 'example-two', component: ExampleTwoComponent }
+      { path: 'example-two', component: ExampleTwoComponent },
+      { path: 'insurance-quote', component: InsuranceQuoteComponent }
     ])
   ],
   declarations: [
@@ -45,6 +49,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     DynamicFormComponent,
     DynamicFormControlComponent,
     GroupFormControlComponent,
+    CheckboxFormControlComponent,
     DropdownFormControlComponent,
     RadioFormControlComponent,
     TextboxFormControlComponent,
@@ -53,6 +58,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     ListContainerDirective,
     ExampleTwoComponent,
     ExampleOneComponent,
+    InsuranceQuoteComponent,
     TopBarComponent
   ],
   providers: [

@@ -1,0 +1,8 @@
+<mat-card>
+  <h3>Get a Free Quote!
+  </h3>
+  <p>Complete this form to obtain a quote for £200,000 of life insurance coverage.</p>
+  <dynamic-form [questions]="questions" [actionName]="'Request Quote'" (submitted)="onSubmitted($event)"></dynamic-form>
+  <br>
+  <pre>{{payload | json}}</pre>
+</mat-card>

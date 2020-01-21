@@ -48,7 +48,7 @@ export class FormControlService {
         }
       }
 
-      if (question.controlType == 'group') {
+      if (question.controlType == 'group' || question.controlType == 'checkbox') {
         const groupQuestion = question as GroupQuestion;
         group[question.key] = this.toFormGroup(groupQuestion.questions);
       }

@@ -1,0 +1,10 @@
+<label>{{question.label}}</label>
+<ng-container [formGroup]="controlFormGroup">
+  <ng-container [formGroup]="formGroup">
+    <ng-container *ngFor="let childQuestion of question.questions, trackBy: trackByIndex()">
+      <mat-checkbox [formControlName]="childQuestion.key" [checked]="childQuestion.value" (change)="updateValue(childQuestion.key, $event.checked)">
+        {{childQuestion.label}}
+      </mat-checkbox>
+    </ng-container>
+  </ng-container>
+</ng-container>

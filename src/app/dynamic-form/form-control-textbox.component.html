@@ -1,5 +1,7 @@
 <mat-form-field [formGroup]="controlFormGroup">
+  <span matPrefix *ngIf="question.controlPrefix">{{question.controlPrefix}}</span>
   <input matInput [placeholder]="question.label" [formControlName]="question.key" [type]="question.type">
+  <span matSuffix *ngIf="question.controlSuffix">{{question.controlSuffix}}</span>
   <mat-error *ngIf="formControl.hasError('pattern') && !formControl.hasError('required')">
     Please enter a valid number
   </mat-error>

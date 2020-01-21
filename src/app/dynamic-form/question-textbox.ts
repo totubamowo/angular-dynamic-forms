@@ -6,6 +6,8 @@ export class TextboxQuestion extends QuestionBase<string> {
   min: number;
   max: number;
   type: string;
+  controlPrefix: string;
+  controlSuffix: string;
 
   constructor(options: {} = {}) {
     super(options);

@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 import { MatButtonModule, MatCardModule, MatCheckboxModule, MatExpansionModule, MatInputModule, MatFormFieldModule, MatRadioModule, MatSelectModule, MatTabsModule, MatIconModule, MAT_DATE_LOCALE } from '@angular/material';
 import { ExampleTwoComponent } from './example-two/example-two.component';
 import { ExampleOneComponent } from './example-one/example-one.component';
@@ -20,6 +19,7 @@ import { ListFormControlComponent } from './dynamic-form/list-component/list-for
 import { ListItemComponent } from './dynamic-form/list-component/list-item-component/list-item.component';
 import { ListContainerDirective } from './dynamic-form/list-component/list-container.directive';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   imports: [
@@ -38,11 +38,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     MatTabsModule,
     MatIconModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: 'example-one', component: ExampleOneComponent },
-      { path: 'example-two', component: ExampleTwoComponent },
-      { path: 'insurance-quote', component: InsuranceQuoteComponent }
-    ])
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,

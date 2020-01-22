@@ -20,6 +20,9 @@ export class GroupFormControlComponent implements OnInit {
       this.formGroup.setValue(this.question.value);
       this.controlFormGroup.updateValueAndValidity();
     }
+    this.formGroup.statusChanges.subscribe(() => {
+      this.controlFormGroup.updateValueAndValidity();
+    });
   }
 
   constructor(private formControlService: FormControlService) { }

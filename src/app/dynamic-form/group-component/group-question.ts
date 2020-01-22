@@ -1,10 +1,10 @@
-import { QuestionBase } from '../question-base';
+import { Question } from '../question';
 
-export class GroupQuestion extends QuestionBase<object> {
-  questions: QuestionBase<any>[] = [];
+export class GroupQuestion extends Question<object> {
+  questions: Question<any>[] = [];
 
   constructor(options: {} = {}) {
     super(options);
-    this.questions = options['questions'];
+    this.questions = options['questions'] || [];
   }
 }

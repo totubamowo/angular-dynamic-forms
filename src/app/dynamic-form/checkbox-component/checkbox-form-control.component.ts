@@ -3,7 +3,6 @@ import { FormGroup } from '@angular/forms';
 
 import { CheckboxQuestion } from './checkbox-question';
 import { FormControlService } from '../form-control.service';
-import { QuestionBase } from '../question-base';
 
 @Component({
   selector: 'checkbox',

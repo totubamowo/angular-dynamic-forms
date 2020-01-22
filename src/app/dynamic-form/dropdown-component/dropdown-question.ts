@@ -1,12 +1,11 @@
-import { QuestionBase, Option } from '../question-base';
+import { Option } from '../option';
+import { Question } from '../question';
 
-export class DropdownQuestion extends QuestionBase<string> {
-  options: Option[] = [];
+export class DropdownQuestion extends Question<string> {
+  options: Option<string>[] = [];
 
   constructor(options: {} = {}) {
     super(options);
-    this.options = options['options'].map(opt => {
-      return new Option({ description: opt.description, value: opt.value });
-    });
+    this.options = options['options'] || [];
   }
 }

@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { FormGroup } from "@angular/forms";
-import { QuestionBase } from "../../question-base";
+import { Question } from "../../question";
 
 @Component({
     templateUrl: './list-item.component.html',
@@ -8,7 +8,7 @@ import { QuestionBase } from "../../question-base";
 })
 export class ListItemComponent {
     @Input() controlFormGroup: FormGroup;
-    @Input() questions: QuestionBase<any>[];
+    @Input() questions: Question<any>[];
     @Output() removed: EventEmitter<any> = new EventEmitter();
 
     remove(): void {

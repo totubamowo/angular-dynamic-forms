@@ -1,12 +1,11 @@
-import { QuestionBase, Option } from '../question-base';
+import { Option } from '../option';
+import { Question } from '../question';
 
-export class RadioQuestion extends QuestionBase<any> {
-  options: Option[] = [];
+export class RadioQuestion extends Question<any> {
+  options: Option<any>[] = [];
 
   constructor(options: {} = {}) {
     super(options);
-    this.options = options['options'].map(opt => {
-      return new Option({ description: opt.description, value: opt.value });
-    });
+    this.options = options['options'] || [];
   }
 }

@@ -1,11 +1,12 @@
-import { QuestionBase } from '../question-base';
+import { Question } from '../question';
 
-export class ListQuestion extends QuestionBase<object[]> {
+export class ListQuestion extends Question<object[]> {
+  questions: Question<any>[] = [];
   maxLength: number;
-  questions: QuestionBase<any>[] = [];
 
   constructor(options: {} = {}) {
     super(options);
-    this.questions = options['questions'];
+    this.questions = options['questions'] || [];
+    this.questions = options['maxLength'] || Number.MAX_VALUE;
   }
 }

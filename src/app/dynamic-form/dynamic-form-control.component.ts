@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { QuestionBase } from './question-base';
+import { Question } from './question';
 
 @Component({
   selector: 'dynamic-form-control',
@@ -10,6 +10,6 @@ import { QuestionBase } from './question-base';
 })
 
 export class DynamicFormControlComponent {
-  @Input() question: QuestionBase<any>;
+  @Input() question: Question<any>;
   @Input() controlFormGroup: FormGroup;
 }

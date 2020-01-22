@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormArray, ValidatorFn } from '@angular/forms';
 
-import { QuestionBase } from './question-base';
+import { Question } from './question';
 import { TextboxQuestion } from './textbox-component/textbox-question';
 import { GroupQuestion } from './group-component/group-question';
 import { ListQuestion } from './list-component/list-question';
@@ -10,7 +10,7 @@ import { ListQuestion } from './list-component/list-question';
 export class FormControlService {
   constructor() { }
 
-  toFormGroup(questions: QuestionBase<any>[]): FormGroup {
+  toFormGroup(questions: Question<any>[]): FormGroup {
     let group: any = {};
 
     questions.forEach(question => {

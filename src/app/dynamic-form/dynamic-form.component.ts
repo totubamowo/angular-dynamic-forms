@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { QuestionBase } from './question-base';
+import { Question } from './question';
 import { FormControlService } from './form-control.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { FormControlService } from './form-control.service';
 })
 
 export class DynamicFormComponent implements OnInit {
-  @Input() questions: QuestionBase<any>[] = [];
+  @Input() questions: Question<any>[] = [];
   @Input() actionName: string;
   @Output() submitted = new EventEmitter<any>();
   formGroup: FormGroup;

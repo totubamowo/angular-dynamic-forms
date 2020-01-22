@@ -60,7 +60,7 @@ export class ExampleTwoQuestionService {
       },
       {
         controlType: 'list',
-        max: 3,
+        maxLength: 3,
         key: 'list',
         label: 'List',
         required: true,

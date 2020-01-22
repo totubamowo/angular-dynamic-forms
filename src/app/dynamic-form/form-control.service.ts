@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormArray, ValidatorFn } from '@angular/forms';
 
 import { QuestionBase } from './question-base';
-import { TextboxQuestion } from './question-textbox';
+import { TextboxQuestion } from './textbox-component/textbox-question';
 import { GroupQuestion } from './group-component/group-question';
 import { ListQuestion } from './list-component/list-question';
 

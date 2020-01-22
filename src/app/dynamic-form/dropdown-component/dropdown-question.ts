@@ -1,4 +1,4 @@
-import { QuestionBase, Option } from './question-base';
+import { QuestionBase, Option } from '../question-base';
 
 export class DropdownQuestion extends QuestionBase<string> {
   options: Option[] = [];

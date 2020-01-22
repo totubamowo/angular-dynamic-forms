@@ -1,15 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
-import { TextboxQuestion } from './question-textbox';
+import { DropdownQuestion } from './dropdown-question';
 
 @Component({
-  selector: 'textbox',
-  templateUrl: './form-control-textbox.component.html'
+  selector: 'dropdown',
+  templateUrl: './dropdown-form-control.component.html'
 })
 
-export class TextboxFormControlComponent implements OnInit {
-  @Input() question: TextboxQuestion;
+export class DropdownFormControlComponent implements OnInit {
+  @Input() question: DropdownQuestion;
   @Input() controlFormGroup: FormGroup;
 
   ngOnInit(): void {

@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
-import { RadioQuestion } from './question-radio';
+import { RadioQuestion } from './radio-question';
 
 @Component({
   selector: 'radio',
-  templateUrl: './form-control-radio.component.html',
-  styleUrls: ['./form-control-radio.component.css']
+  templateUrl: './radio-form-control.component.html',
+  styleUrls: ['./radio-form-control.component.css']
 })
 
 export class RadioFormControlComponent implements OnInit {

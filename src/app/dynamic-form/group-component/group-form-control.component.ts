@@ -6,8 +6,7 @@ import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'group',
   templateUrl: './group-form-control.component.html',
-  styleUrls: ['./group-form-control.component.css'],
-  providers: [FormControlService]
+  styleUrls: ['./group-form-control.component.css']
 })
 
 export class GroupFormControlComponent implements OnInit {
@@ -15,7 +14,7 @@ export class GroupFormControlComponent implements OnInit {
   @Input() controlFormGroup: FormGroup;
 
   ngOnInit(): void {
-    this.formGroup = this.formControlService.toFormGroup(this.question.questions);
+    this.formGroup = FormControlService.toFormGroup(this.question.questions);
     if (this.question.value !== null && typeof this.question.value !== 'undefined') {
       this.formGroup.setValue(this.question.value);
       this.controlFormGroup.updateValueAndValidity();
@@ -24,8 +23,6 @@ export class GroupFormControlComponent implements OnInit {
       this.controlFormGroup.updateValueAndValidity();
     });
   }
-
-  constructor(private formControlService: FormControlService) { }
 
   get formGroup(): FormGroup {
     return this.controlFormGroup.controls[this.question.key] as FormGroup;

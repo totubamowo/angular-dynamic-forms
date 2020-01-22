@@ -6,8 +6,7 @@ import { FormControlService } from './form-control.service';
 
 @Component({
   selector: 'dynamic-form',
-  templateUrl: './dynamic-form.component.html',
-  providers: [FormControlService]
+  templateUrl: './dynamic-form.component.html'
 })
 
 export class DynamicFormComponent implements OnInit {
@@ -16,10 +15,10 @@ export class DynamicFormComponent implements OnInit {
   @Output() submitted = new EventEmitter<any>();
   formGroup: FormGroup;
 
-  constructor(private formControlService: FormControlService, private cdr: ChangeDetectorRef) { }
+  constructor(private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-    this.formGroup = this.formControlService.toFormGroup(this.questions);
+    this.formGroup = FormControlService.toFormGroup(this.questions);
     this.cdr.detectChanges();
   }
 

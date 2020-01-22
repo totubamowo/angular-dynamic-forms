@@ -8,8 +8,7 @@ import { ListItemComponent } from "./list-item-component/list-item.component";
 @Component({
   selector: 'list',
   templateUrl: './list-form-control.component.html',
-  styleUrls: ['./list-form-control.component.css'],
-  providers: [FormControlService]
+  styleUrls: ['./list-form-control.component.css']
 })
 
 export class ListFormControlComponent implements OnInit {
@@ -29,7 +28,7 @@ export class ListFormControlComponent implements OnInit {
     }
   }
 
-  constructor(private formControlService: FormControlService, componentFactoryResolver: ComponentFactoryResolver) {
+  constructor(componentFactoryResolver: ComponentFactoryResolver) {
     this.listItemComponentFactory = componentFactoryResolver.resolveComponentFactory(ListItemComponent);
   }
 
@@ -52,7 +51,7 @@ export class ListFormControlComponent implements OnInit {
   }
 
   addListItem(): number {
-    this.formArray.push(this.formControlService.toFormGroup(this.question.questions));
+    this.formArray.push(FormControlService.toFormGroup(this.question.questions));
     let controlIndex = this.formArray.length - 1;
     this.createGroupChild(controlIndex);
     return controlIndex;

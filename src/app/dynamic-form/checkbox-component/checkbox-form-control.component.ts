@@ -15,14 +15,12 @@ export class CheckboxFormControlComponent implements OnInit {
   @Input() controlFormGroup: FormGroup;
 
   ngOnInit(): void {
-    this.formGroup = this.formControlService.toFormGroup(this.question.questions);
+    this.formGroup = FormControlService.toFormGroup(this.question.questions);
     if (this.question.value !== null && typeof this.question.value !== 'undefined') {
       this.formGroup.setValue(this.question.value);
       this.controlFormGroup.updateValueAndValidity();
     }
   }
-
-  constructor(private formControlService: FormControlService) { }
 
   get formGroup(): FormGroup {
     return this.controlFormGroup.controls[this.question.key] as FormGroup;

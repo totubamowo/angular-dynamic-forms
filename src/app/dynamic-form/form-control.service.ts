@@ -18,7 +18,7 @@ export class FormControlService {
       if (question.controlType == 'textbox') {
         const textboxQuestion = question as TextboxQuestion;
         if (textboxQuestion.type == 'number') {
-          validators.push(Validators.pattern(/^[1-9][0-9]*$/));
+          validators.push(Validators.pattern(/^[0-9][0-9]*$/));
           if(textboxQuestion.min !== null && textboxQuestion.min !== undefined) {
             validators.push(Validators.min(textboxQuestion.min));
           }

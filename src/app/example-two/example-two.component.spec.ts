@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExampleOneComponent } from './example-one.component';
+import { ExampleTwoComponent } from './example-two.component';
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({ selector: 'dynamic-form', template: '' })
@@ -13,24 +13,23 @@ class DynamicFormStubComponent {
 @Component({ selector: 'mat-card', template: '' })
 class MatCardStubComponent { }
 
-describe('ExampleOneComponent', () => {
-  let component: ExampleOneComponent;
+describe('ExampleTwoComponent', () => {
+  let component: ExampleTwoComponent;
   let element: any;
-  let fixture: ComponentFixture<ExampleOneComponent>;
+  let fixture: ComponentFixture<ExampleTwoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         MatCardStubComponent,
         DynamicFormStubComponent,
-        ExampleOneComponent
+        ExampleTwoComponent
       ]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExampleOneComponent);
+    fixture = TestBed.createComponent(ExampleTwoComponent);
     component = fixture.componentInstance;
     element = fixture.nativeElement;
     fixture.detectChanges();

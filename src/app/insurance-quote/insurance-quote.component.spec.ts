@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExampleOneComponent } from './example-one.component';
 import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { InsuranceQuoteComponent } from './insurance-quote.component';
 
 @Component({ selector: 'dynamic-form', template: '' })
 class DynamicFormStubComponent {
@@ -13,24 +13,23 @@ class DynamicFormStubComponent {
 @Component({ selector: 'mat-card', template: '' })
 class MatCardStubComponent { }
 
-describe('ExampleOneComponent', () => {
-  let component: ExampleOneComponent;
+describe('InsuranceQuoteComponent', () => {
+  let component: InsuranceQuoteComponent;
   let element: any;
-  let fixture: ComponentFixture<ExampleOneComponent>;
+  let fixture: ComponentFixture<InsuranceQuoteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         MatCardStubComponent,
         DynamicFormStubComponent,
-        ExampleOneComponent
+        InsuranceQuoteComponent
       ]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExampleOneComponent);
+    fixture = TestBed.createComponent(InsuranceQuoteComponent);
     component = fixture.componentInstance;
     element = fixture.nativeElement;
     fixture.detectChanges();

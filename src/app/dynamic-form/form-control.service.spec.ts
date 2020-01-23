@@ -1,6 +1,6 @@
 import { FormControlService } from "./form-control.service";
 import { Question } from "./question";
-import { TextboxQuestion } from "./textbox-component/textbox-question";
+import { TextboxQuestion } from "./textbox/textbox-question";
 import { FormGroup, FormControl } from "@angular/forms";
 
 describe('FormControlService', () => {

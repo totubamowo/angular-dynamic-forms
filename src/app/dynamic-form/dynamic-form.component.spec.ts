@@ -3,8 +3,8 @@ import { ComponentFixture, async, TestBed } from "@angular/core/testing";
 import { Component, Input, NO_ERRORS_SCHEMA } from "@angular/core";
 import { DynamicFormComponent } from "./dynamic-form.component";
 
-@Component({ selector: 'dynamic-form-control', template: '' })
-class DynamicFormControlStubComponent {
+@Component({ selector: 'form-control', template: '' })
+class FormControlStubComponent {
   @Input() question;
 }
 
@@ -16,7 +16,7 @@ describe('DynamicFormComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        DynamicFormControlStubComponent,
+        FormControlStubComponent,
         DynamicFormComponent
       ],
       schemas: [NO_ERRORS_SCHEMA]

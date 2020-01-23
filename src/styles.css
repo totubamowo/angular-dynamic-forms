@@ -46,7 +46,7 @@ mat-card>* {
 }
 
 
-mat-card>dynamic-form>form>div:nth-child(3)>dynamic-form-control>group>section>p {
+mat-card>dynamic-form>form>div:nth-child(3)>form-control>group>section>p {
   margin-bottom: -1rem;
 }
 

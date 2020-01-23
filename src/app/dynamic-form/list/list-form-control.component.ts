@@ -3,7 +3,7 @@ import { FormControlService } from "../form-control.service";
 import { ListQuestion } from "./list-question";
 import { FormGroup, FormArray } from "@angular/forms";
 import { ListContainerDirective } from "./list-container.directive";
-import { ListItemComponent } from "./list-item-component/list-item.component";
+import { ListItemComponent } from "./list-item/list-item.component";
 
 @Component({
   selector: 'list',

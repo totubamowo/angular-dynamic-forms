@@ -9,15 +9,15 @@ import { ExampleOneComponent } from './example-one/example-one.component';
 import { InsuranceQuoteComponent } from './insurance-quote/insurance-quote.component';
 import { AppComponent } from './app.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
-import { DynamicFormControlComponent } from './dynamic-form/dynamic-form-control.component';
-import { GroupFormControlComponent } from './dynamic-form/group-component/group-form-control.component';
-import { CheckboxFormControlComponent } from './dynamic-form/checkbox-component/checkbox-form-control.component';
-import { DropdownFormControlComponent } from './dynamic-form/dropdown-component/dropdown-form-control.component';
-import { RadioFormControlComponent } from './dynamic-form/radio-component/radio-form-control.component';
-import { TextboxFormControlComponent } from './dynamic-form/textbox-component/textbox-form-control.component';
-import { ListFormControlComponent } from './dynamic-form/list-component/list-form-control.component';
-import { ListItemComponent } from './dynamic-form/list-component/list-item-component/list-item.component';
-import { ListContainerDirective } from './dynamic-form/list-component/list-container.directive';
+import { FormControlComponent } from './dynamic-form/form-control/form-control.component';
+import { GroupFormControlComponent } from './dynamic-form/group/group-form-control.component';
+import { CheckboxFormControlComponent } from './dynamic-form/checkbox/checkbox-form-control.component';
+import { DropdownFormControlComponent } from './dynamic-form/dropdown/dropdown-form-control.component';
+import { RadioFormControlComponent } from './dynamic-form/radio/radio-form-control.component';
+import { TextboxFormControlComponent } from './dynamic-form/textbox/textbox-form-control.component';
+import { ListFormControlComponent } from './dynamic-form/list/list-form-control.component';
+import { ListItemComponent } from './dynamic-form/list/list-item/list-item.component';
+import { ListContainerDirective } from './dynamic-form/list/list-container.directive';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -43,7 +43,7 @@ import { AppRoutingModule } from './app-routing.module';
   declarations: [
     AppComponent,
     DynamicFormComponent,
-    DynamicFormControlComponent,
+    FormControlComponent,
     GroupFormControlComponent,
     CheckboxFormControlComponent,
     DropdownFormControlComponent,

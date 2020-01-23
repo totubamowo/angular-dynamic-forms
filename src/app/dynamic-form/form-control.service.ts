@@ -1,9 +1,9 @@
 import { FormControl, FormGroup, Validators, FormArray, ValidatorFn } from '@angular/forms';
 
 import { Question } from './question';
-import { TextboxQuestion } from './textbox-component/textbox-question';
-import { GroupQuestion } from './group-component/group-question';
-import { ListQuestion } from './list-component/list-question';
+import { TextboxQuestion } from './textbox/textbox-question';
+import { GroupQuestion } from './group/group-question';
+import { ListQuestion } from './list/list-question';
 
 export class FormControlService {
 

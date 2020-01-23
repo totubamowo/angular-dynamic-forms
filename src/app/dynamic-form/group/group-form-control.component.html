@@ -3,8 +3,8 @@
   <ng-container [formGroup]="controlFormGroup">
     <ng-container [formGroup]="formGroup">
       <ng-container *ngFor="let childQuestion of question.questions, trackBy: trackByIndex()">
-        <dynamic-form-control class="group-item" [controlFormGroup]="formGroup" [question]="childQuestion">
-        </dynamic-form-control>
+        <form-control class="group-item" [controlFormGroup]="formGroup" [question]="childQuestion">
+        </form-control>
       </ng-container>
     </ng-container>
   </ng-container>

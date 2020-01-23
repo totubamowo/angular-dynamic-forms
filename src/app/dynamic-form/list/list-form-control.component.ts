@@ -58,9 +58,8 @@ export class ListFormControlComponent implements OnInit {
   }
 
   get isAddButtonDisabled(): boolean {
-    if (this.question.maxLength !== null && typeof this.question.maxLength !== 'undefined') {
-      return this.formArray.length >= this.question.maxLength;
-    }
-    return false
+    return this.question.maxLength !== null && typeof this.question.maxLength !== 'undefined' && this.formArray.length >= this.question.maxLength;
   }
+
+  isRemoveButtonDisabled: boolean = false;
 }

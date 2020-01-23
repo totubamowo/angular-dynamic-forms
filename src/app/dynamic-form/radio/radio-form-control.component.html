@@ -1,4 +1,4 @@
-<label>{{question.label}}</label>
+<label><strong>{{question.label}}</strong></label>
 <ng-container [formGroup]="controlFormGroup">
   <mat-radio-group [formControlName]="question.key">
     <mat-radio-button [name]="question.key" *ngFor="let opt of question.options" [value]="opt.value">

@@ -1,5 +1,5 @@
 <section>
-  <p>{{question.label}}</p>
+  <p><strong>{{question.label}}</strong></p>
   <ng-container [formGroup]="controlFormGroup">
     <ng-container [formGroup]="formGroup">
       <ng-container *ngFor="let childQuestion of question.questions, trackBy: trackByIndex()">

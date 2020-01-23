@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Quick Quote</h1>
+<div mat-dialog-content>
+<p>Based on the information submitted, the risk could be eligible for a quote within Escape and the approximate premium would be: <strong>$ {{data.policy.premium}}</strong></p>
+</div>
+<p>Would you like to proceed to entering this risk as a formal quote <strong>{{data.policy.quoteNumber}}?</strong></p>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data.policy.quoteNumber" cdkFocusInitial>Yes</button>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+</div>

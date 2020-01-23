@@ -1,0 +1,22 @@
+.mat-table {
+    max-height: 5rem;
+}
+
+table tr td {
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+table tr td:nth-child(2) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+table th {
+    font-weight: bold;
+    text-align: center;
+}
+
+mat-spinner {
+    margin: 0 auto;
+}

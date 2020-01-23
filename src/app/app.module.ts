@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MatButtonModule, MatCardModule, MatCheckboxModule, MatExpansionModule, MatInputModule, MatFormFieldModule, MatRadioModule, MatSelectModule, MatTabsModule, MatIconModule, MAT_DATE_LOCALE } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatCheckboxModule, MatDialogModule, MatExpansionModule, MatInputModule, MatFormFieldModule, MatPaginatorModule, MatProgressSpinnerModule, MatRadioModule, MatSelectModule, MatSnackBarModule, MatTableModule, MatTabsModule, MatIconModule, MAT_DATE_LOCALE } from '@angular/material';
 import { ExampleTwoComponent } from './example-two/example-two.component';
 import { ExampleOneComponent } from './example-one/example-one.component';
 import { InsuranceQuoteComponent } from './insurance-quote/insurance-quote.component';
@@ -20,6 +20,12 @@ import { ListItemComponent } from './dynamic-form/list/list-item/list-item.compo
 import { ListContainerDirective } from './dynamic-form/list/list-container.directive';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { AppRoutingModule } from './app-routing.module';
+import { environment } from 'src/environments/environment';
+
+import { BASE_PATH as QE_BASE_PATH } from './starstone-api-client/quick-eligibility';
+import { BASE_PATH as QI_BASE_PATH } from './starstone-api-client/quick-indication';
+import { QuickIndicationComponent, PremiumDialog } from './quick-indication/quick-indication.component';
+import { QuickEligibilityComponent } from './quick-eligibility/quick-eligibility.component';
 
 @NgModule({
   imports: [
@@ -33,8 +39,13 @@ import { AppRoutingModule } from './app-routing.module';
     MatInputModule,
     MatFormFieldModule,
     MatCheckboxModule,
+    MatDialogModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
     MatRadioModule,
+    MatSnackBarModule,
     MatSelectModule,
+    MatTableModule,
     MatTabsModule,
     MatIconModule,
     ReactiveFormsModule,
@@ -50,17 +61,23 @@ import { AppRoutingModule } from './app-routing.module';
     RadioFormControlComponent,
     TextboxFormControlComponent,
     ListFormControlComponent,
+    PremiumDialog,
     ListItemComponent,
     ListContainerDirective,
     ExampleTwoComponent,
     ExampleOneComponent,
     InsuranceQuoteComponent,
+    QuickIndicationComponent,
+    QuickEligibilityComponent,
     TopBarComponent
   ],
   providers: [
-    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+    { provide: QE_BASE_PATH, useValue: environment.escapeApi.baseUrl },
+    { provide: QI_BASE_PATH, useValue: environment.escapeApi.baseUrl },
   ],
   entryComponents: [
+    PremiumDialog,
     ListItemComponent
   ],
   bootstrap: [AppComponent]

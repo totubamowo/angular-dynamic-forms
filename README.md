@@ -1,6 +1,6 @@
 # Angular Dynamic Form
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
+A configuration-driven approach to generating web forms based on a JSON schema.
 
 ## Development server
 
